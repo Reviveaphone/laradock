@@ -38,6 +38,8 @@ RUN echo "upstream php-upstream { server ${PHP_UPSTREAM_CONTAINER}:${PHP_UPSTREA
     && rm /etc/nginx/conf.d/default.conf
 
 ADD ./startup.sh /opt/startup.sh
+ADD ./server.csr.cnf /opt/server.csr.cnf
+ADD ./wefix.test.v3.ext /opt/wefix.test.v3.ext
 RUN sed -i 's/\r//g' /opt/startup.sh
 CMD ["/bin/bash", "/opt/startup.sh"]
 
